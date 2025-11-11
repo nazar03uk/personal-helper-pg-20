@@ -1,5 +1,5 @@
-from addressbook import Name, Address, Phone, Email, Birthday, Record
-from notes import Note
+from personal_assistant.addressbook import Name, Address, Phone, Email, Birthday, Record
+from personal_assistant.notes import Note
 
 
 

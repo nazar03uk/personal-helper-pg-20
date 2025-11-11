@@ -1,9 +1,9 @@
 import difflib
-from storage import (
+from personal_assistant.storage import (
     load_addressbook, save_addressbook, load_notes, save_notes,
     ABOOK_FILE, NOTES_FILE
 )
-from command_handler import handle_command
+from personal_assistant.command_handler import handle_command
 
 SAVE_EVERY = 2  # автозбереження кожні N дій
 

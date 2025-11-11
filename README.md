@@ -41,17 +41,19 @@
 
 ```
 project/
- ├─ src/
- │   ├─ addressbook.py          # Класи Field, Record, AddressBook
- │   ├─ notes.py                # Класи Note та NotesBook
- │   ├─ storage.py              # Збереження/завантаження на диск (.pkl)
- │   ├─ command_handler.py      # Логіка обробки команд
- │   └─ main.py                 # Основний CLI-інтерфейс
- │
- ├─ README.md                   # Опис проєкту
- ├─ requirements.txt            # Залежності
- ├─ pyproject.toml              # Конфігурація пакету
- └─ .gitignore                  # Системні файли, що ігноруються Git
+├─ src/
+│ ├─ personal_assistant/
+│ │ ├─ init.py
+│ │ ├─ addressbook.py # Класи Field, Record, AddressBook
+│ │ ├─ notes.py # Класи Note та NotesBook
+│ │ ├─ storage.py # Збереження/відновлення даних (pickle + міграція)
+│ │ ├─ command_handler.py # Обробка логіки CLI-команд
+│ │ └─ main.py # Основний CLI-інтерфейс (точка входу)
+│
+├─ README.md # Опис проєкту та інструкції
+├─ requirements.txt # Список залежностей
+├─ pyproject.toml # Конфігурація Python-пакета (entry point → assistant)
+└─ .gitignore # Ігноровані файли Git
 ```
 
 ---
@@ -62,8 +64,8 @@ project/
 
 1. Клонування репозиторію:
 ```bash
-git clone https://github.com/nazar03uk/personal-helper-pg-20.git
-cd personal-helper-pg-20
+git clone https://github.com/nazar03uk/personal-assistant-pg-20.git
+cd personal-assistant-pg-20
 ```
 
 2. Встановлення в режимі розробки:
@@ -71,7 +73,7 @@ cd personal-helper-pg-20
 pip install -e .
 ```
 
-3. Запуск програми:
+3. Запуск програми в терміналі (Linux, MacOS, Windows):
 ```bash
 assistant
 ```
