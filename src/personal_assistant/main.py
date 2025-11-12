@@ -5,7 +5,7 @@ from personal_assistant.storage import (
 )
 from personal_assistant.command_handler import handle_command
 
-SAVE_EVERY = 2  # автозбереження кожні N дій
+SAVE_EVERY = 1  # автозбереження кожні N дій
 
 COMMANDS = {
     "add", "add-address", "email", "add-birthday", "edit-phone", "remove-phone",
