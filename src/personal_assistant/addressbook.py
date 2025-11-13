@@ -24,23 +24,38 @@ class Address(Field):
 
 
 class Phone(Field):
-    """Телефон: лише цифри, довжина 7–15."""
+    """Телефон у міжнародному форматі. Дозволяє: +380XXXXXXXXX"""
+    PHONE_RE = re.compile(r"^\+[0-9]{10,15}$")
+
     def __init__(self, value: str):
-        if not value.isdigit():
-            raise ValueError("Телефон повинен містити лише цифри.")
-        if not (7 <= len(value) <= 15):
-            raise ValueError("Довжина телефону має бути від 7 до 15 цифр.")
-        super().__init__(value)
+        original = value.strip()
+
+        if not self.PHONE_RE.match(original):
+            raise ValueError(
+                "Некоректний номер."
+            )
+
+        super().__init__(original)
 
 
 class Email(Field):
-    """Email regex-валідація."""
-    EMAIL_RE = re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
+    """Валідація email згідно RFC 5322."""
+    EMAIL_RE = re.compile(
+        r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@"
+        r"[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$"
+    )
 
     def __init__(self, value: str):
+        value = value.strip()
+
         if not self.EMAIL_RE.match(value):
-            raise ValueError("Некоректний email.")
+            raise ValueError(
+                "Некоректний email.\n"
+                "Приклад: example@gmail.com"
+            )
+
         super().__init__(value)
+
 
 
 class Birthday(Field):
